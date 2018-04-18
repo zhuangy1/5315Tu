@@ -1,0 +1,92 @@
+<!-- Source: http://ecis.seattleu.edu/lee/5315/jsonxml/xmltable.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- load jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- load datatables js library -->
+  <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+  <!-- link datatables css -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+  <script type="text/javascript">
+    $(document).ready(function(){
+       var t = $('#chart').DataTable();
+       $.ajax({
+            type: "GET",
+            url: "empdata.xml", 
+            dataType: "xml",
+            success: function(xml) {  
+             $(xml).find('data').each(function(){  
+              t.row.add( [
+                $(this).find('name').text(),
+                $(this).find('designation').text(),
+                $(this).find('office').text(),
+                $(this).find('extension').text(),
+                $(this).find('joining_date').text(),
+                $(this).find('salary').text()
+              ] ).draw( false );
+             });
+            }
+        });
+      });
+  </script>
+</head>
+
+<body>
+  <table id="chart" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Office</th>
+            <th>Extension</th>
+            <th>Joining Date</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Office</th>
+            <th>Extension</th>
+            <th>Joining Date</th>
+            <th>Salary</th>
+        </tr>
+    </tfoot>
+  </table>
+</body>
+</html>
+
+
+<!-- ############################ -->
+<!-- Written in JavaScript Sample -->
+<!-- This is NOT used in the HTML -->
+<!-- ############################ -->
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      myFunction(xmlhttp);
+    }
+  }
+  xmlhttp.open("GET", "cd_catalog.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Artist</th><th>Title</th></tr>";
+  var x = xmlDoc.getElementsByTagName("CD");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
