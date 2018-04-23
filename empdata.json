@@ -3,12 +3,17 @@
     {
       "name": "Yuze",
       "email": "yuze@126.com",
-      "country": "china"
+      "country": "China",
+      "city": "Shanghai",
+      "phone": "2066604228"
+
     },
     {
       "name": "Zhaofeng",
       "email": "Zhaofeng@126.com",
-      "country": "china"
+      "country": "China",
+      "city": "Taizhou",
+      "phone": "2066197098"
     }
   ]
 }
