@@ -1,14 +1,14 @@
 {
   "data": [
     {
-      "name": "Yuze_Zhuang",
+      "name": "Yuze",
       "email": "yuze@126.com",
       "gender": "male",
       "maths": "100",
       "finance": "90"
     },
     {
-      "name": "Zhaofeng_Hu",
+      "name": "Zhaofeng",
       "email": "Zhaofeng@126.com",
       "gender": "male",
       "maths": "90",
