@@ -12,18 +12,12 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Gender</th>
-                <th>Maths</th>
-                <th>Finance</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Gender</th>
-                <th>Maths</th>
-                <th>Finance</th>
             </tr>
         </tfoot>
     </table>
@@ -38,11 +32,8 @@
         $('#empTable').dataTable({
             "ajax": "empdata.json",
             "columns": [
-                {"data": "Name"},
-                {"data": "Email"},
-                {"data": "Gender"},
-                {"data": "Maths"},
-                {"data": "Finance"}
+                {"data": "name"},
+                {"data": "email"}
             ]
         });   
     });
